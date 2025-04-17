@@ -1,0 +1,2 @@
+class Dinamica < ApplicationRecord
+end

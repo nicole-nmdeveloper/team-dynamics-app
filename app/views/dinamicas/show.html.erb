@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @dinamica %>
+
+<div>
+  <%= link_to "Edit this dinamica", edit_dinamica_path(@dinamica) %> |
+  <%= link_to "Back to dinamicas", dinamicas_path %>
+
+  <%= button_to "Destroy this dinamica", @dinamica, method: :delete %>
+</div>

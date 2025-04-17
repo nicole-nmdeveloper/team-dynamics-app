@@ -1,0 +1,2 @@
+module DinamicasHelper
+end
