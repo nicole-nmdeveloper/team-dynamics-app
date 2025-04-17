@@ -10,6 +10,11 @@ class DinamicasController < ApplicationController
   def show
   end
 
+  # GET /dinamicas/1 or /dinamicas/1.json
+  def random
+    @dinamica = Dinamica.order("RANDOM()").first
+  end
+
   # GET /dinamicas/new
   def new
     @dinamica = Dinamica.new

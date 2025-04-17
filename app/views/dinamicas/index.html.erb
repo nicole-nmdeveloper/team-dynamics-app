@@ -1,16 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Dinamicas" %>
+<% content_for :title, "Dinâmicas" %>
 
-<h1>Dinamicas</h1>
+<h1>Dinâmicas da equipe</h1>
 
 <div id="dinamicas">
   <% @dinamicas.each do |dinamica| %>
     <%= render dinamica %>
     <p>
-      <%= link_to "Show this dinamica", dinamica %>
+      <%= link_to "Show", dinamica %>
     </p>
+    <p>
+      <%= link_to "Edit", edit_dinamica_path(dinamica.id) %>
+    </p>
+    <p>
+      <%= link_to "Delete", dinamica_path(dinamica.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+    <br />
   <% end %>
 </div>
 
 <%= link_to "New dinamica", new_dinamica_path %>
+<%= link_to "Random", dinamicas_random_path %>
