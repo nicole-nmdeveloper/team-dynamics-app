@@ -3,11 +3,8 @@ version: '3.8'
 services:
   db:
     image: postgres:15
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: team_dynamics_app_development
-      DB_HOST: db
+    env_file:
+      - .env
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     ports:
@@ -22,5 +19,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    env_file:
+      - .env
     environment:
       DATABASE_URL: postgres://postgres:postgres@db:5432/team_dynamics_app_development
