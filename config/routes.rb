@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   get "dinamicas/random", to: "dinamicas#random"
 
   resources :dinamicas

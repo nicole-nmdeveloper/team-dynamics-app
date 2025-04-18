@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_17_132047) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_18_230621) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "dinamicas", force: :cascade do |t|
     t.string "nome"
     t.string "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "comentario"
+    t.integer "nota"
+    t.date "data_criacao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
