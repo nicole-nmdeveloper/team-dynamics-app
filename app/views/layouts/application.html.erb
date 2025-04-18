@@ -29,6 +29,10 @@
   <body class="container">
     <%= render 'dinamicas/nav' %>
 
+    <% if notice %>
+      <%= render 'layouts/alerts' %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

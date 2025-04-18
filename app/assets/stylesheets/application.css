@@ -168,8 +168,42 @@ span {
   color: #494e58;
 }
 
+.alert {
+  position: absolute;
+  right: 24px;
+  top: 16px;
+
+  margin-bottom: 24px;
+  padding: 14px 24px;
+
+  background-color: #2f8f62;
+  color: #F5F4FE;
+
+  border-radius: 8px;
+
+  max-width: fit-content;
+
+  transition: .5s ease;
+
+  animation: alert 5s ease forwards;
+}
+
+@keyframes alert {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
 .success-color {
-  color: #198754;
+  color: #2f8f62;
 }
 
 .warning-color {
