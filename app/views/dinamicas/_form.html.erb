@@ -1,4 +1,4 @@
-<%= form_with(model: dinamica) do |form| %>
+<%= form_with(model: dinamica, local: true) do |form| %>
   <% if dinamica.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(dinamica.errors.count, "error") %> prohibited this dinamica from being saved:</h2>
@@ -12,16 +12,14 @@
   <% end %>
 
   <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome, placeholder: "Nome da dinâmica" %>
   </div>
 
   <div>
-    <%= form.label :descricao, style: "display: block" %>
-    <%= form.text_field :descricao %>
+    <%= form.text_field :descricao, placeholder: "Descrição da dinâmica" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit  @dinamica.persisted? ? "Atualizar Dinâmica" : "Criar Dinâmica", class: "btn-form" %>
   </div>
 <% end %>

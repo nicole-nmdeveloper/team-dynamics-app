@@ -1,10 +1,239 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  color: #ACB3C1;
+  background-color: #1d2129;
+}
+
+nav {
+  background-color: #2b303b;
+  
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  height: 100%;
+
+  width: 264px;
+
+  padding: 28px 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+nav > ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1260px;
+  margin-left: 288px;
+  margin-right: 24px;
+
+  height: fit-content;
+
+  padding: 64px 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  color: #F5F4FE;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 20px;
+  transition: .5s ease;
+}
+
+.nav-item {
+  color: #ACB3C1;
+  transition: .5s ease;
+
+  margin-bottom: 24px;
+}
+
+.title:hover, .nav-item:hover {
+  color: #F5F4FE;
+  opacity: .7;
+}
+
+.nav-item:hover {
+  color: #ACB3C1;
+}
+
+.main-nav-item {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+
+  border-bottom: 1px solid #494e58;
+}
+
+a {
+  display: inline-block;
+
+  color: #6d89f7;
+  text-decoration: none;
+
+  transition: .5s ease;
+}
+
+a:hover {
+  color: #89a0fd;
+}
+
+button, .button, .btn-form {
+  border: 1px solid #F5F4FE;
+  border-radius: 8px;
+
+  padding: 14px 24px;
+
+  background-color: transparent;
+  color: #F5F4FE;
+
+  cursor: pointer;
+
+  transition: .5s ease;
+  font-size: 16px;
+}
+
+.btn-form {
+  margin-top: 16px;
+
+  background-color: #F5F4FE;
+  color: #1d2129;
+}
+
+button, .button:hover {
+  background-color: #F5F4FE;
+  color: #1d2129;
+}
+
+.btn-form:hover {
+  opacity: .6;
+}
+
+.btn-container {
+  margin: 28px 0 4px 24px;
+
+  display: flex;
+  gap: 16px;
+}
+
+.btn-icon {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: #F5F4FE;
+}
+
+.btn-icon:hover {
+  background-color: #6d89f7;
+  border: 1px solid #6d89f7;
+}
+
+.btn-icon-danger:hover {
+  background-color: #e25160;
+  border: 1px solid #e25160;
+}
+
+.flex {
+  display: flex;
+  gap: 16px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+span {
+  color: #494e58;
+}
+
+.success-color {
+  color: #198754;
+}
+
+.warning-color {
+  color: #FD7E14;
+}
+
+.error-color {
+  color: #DC3545;
+}
+
+.error-color:hover {
+  color: #e25160;
+}
+
+.dinamica, form {
+  margin: 24px;
+  padding: 48px;
+
+  border-radius: 16px;
+  background-color: #2b303b;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.dinamica-title {
+  font-size: 28px;
+  font-weight: 300;
+  color: #F5F4FE;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  max-width: 600px;
+
+  padding: 56px 72px;
+}
+
+input {
+  border-radius: 8px;
+  border: none;
+  outline: 1px solid #F5F4FE;
+
+  background-color: transparent;
+  color: #F5F4FE;
+
+  width: 100%;
+  height: 56px;
+
+  padding: 0 24px;
+
+  font-size: 16px;
+
+  transition: .3s ease;
+}
+
+input:focus {
+  outline: 1px solid #6d89f7;
+  border: none;
+}
+
+input::placeholder {
+  color: #656b77;
+}

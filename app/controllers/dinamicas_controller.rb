@@ -30,7 +30,7 @@ class DinamicasController < ApplicationController
 
     respond_to do |format|
       if @dinamica.save
-        format.html { redirect_to @dinamica, notice: "Dinamica was successfully created." }
+        format.html { redirect_to @dinamica, notice: "A dinâmica foi cadastrada." }
         format.json { render :show, status: :created, location: @dinamica }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class DinamicasController < ApplicationController
   def update
     respond_to do |format|
       if @dinamica.update(dinamica_params)
-        format.html { redirect_to @dinamica, notice: "Dinamica was successfully updated." }
+        format.html { redirect_to @dinamica, notice: "A dinâmica foi atualizada." }
         format.json { render :show, status: :ok, location: @dinamica }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class DinamicasController < ApplicationController
     @dinamica.destroy!
 
     respond_to do |format|
-      format.html { redirect_to dinamicas_path, status: :see_other, notice: "Dinamica was successfully destroyed." }
+      format.html { redirect_to dinamicas_path, status: :see_other, notice: "A dinâmica foi apagada." }
       format.json { head :no_content }
     end
   end
