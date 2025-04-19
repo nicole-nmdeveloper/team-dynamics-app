@@ -3,7 +3,7 @@ class DinamicasController < ApplicationController
 
   # GET /dinamicas or /dinamicas.json
   def index
-    @dinamicas = Dinamica.all
+    @dinamicas = Dinamica.includes(:reviews).all
   end
 
   # GET /dinamicas/1 or /dinamicas/1.json
@@ -18,6 +18,7 @@ class DinamicasController < ApplicationController
   # GET /dinamicas/new
   def new
     @dinamica = Dinamica.new
+    @dinamica.reviews.build
   end
 
   # GET /dinamicas/1/edit
@@ -70,6 +71,10 @@ class DinamicasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dinamica_params
-      params.expect(dinamica: [ :nome, :descricao ])
+      params.require(:dinamica).permit(
+        :nome,
+        :descricao,
+        reviews_attributes: [:id, :comentario, :nota, :data_criacao ]
+      )
     end
 end

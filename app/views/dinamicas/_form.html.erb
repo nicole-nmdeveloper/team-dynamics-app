@@ -19,6 +19,20 @@
     <%= form.text_field :descricao, placeholder: "Descrição da dinâmica" %>
   </div>
 
+  <%= form.fields_for :reviews do |review_fields| %>
+    <div>
+      <%= review_fields.text_field :comentario, placeholder: "Comentário sobre a dinâmica" %>
+    </div>
+
+    <div>
+      <%= review_fields.number_field :nota, placeholder: "Nota (1 - 5)", min: 1, max: 5 %>
+    </div>
+
+    <div>
+      <%= review_fields.date_field :data_criacao, type: :hidden, value: Date.today %>
+    </div>
+  <% end %>
+
   <div>
     <%= form.submit  @dinamica.persisted? ? "Atualizar Dinâmica" : "Criar Dinâmica", class: "btn-form" %>
   </div>

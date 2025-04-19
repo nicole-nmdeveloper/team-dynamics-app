@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_18_230621) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_19_022711) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -27,5 +27,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_18_230621) do
     t.date "data_criacao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "dinamica_id", null: false
+    t.index ["dinamica_id"], name: "index_reviews_on_dinamica_id"
   end
+
+  add_foreign_key "reviews", "dinamicas"
 end
