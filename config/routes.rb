@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :reviews
   get "dinamicas/random", to: "dinamicas#random"
 
-  resources :dinamicas
+  resources :dinamicas do
+    resources :reviews, only: [:new, :create]
+  end
   
   root "dinamicas#index"
 

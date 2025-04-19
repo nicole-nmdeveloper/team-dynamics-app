@@ -12,21 +12,22 @@
   <% end %>
 
   <div>
-    <%= form.label :comentario, style: "display: block" %>
-    <%= form.text_field :comentario %>
+    <%= form.text_field :comentario, placeholder: "Comentário sobre a dinâmica" %>
   </div>
 
   <div>
-    <%= form.label :nota, style: "display: block" %>
-    <%= form.number_field :nota %>
+    <%= form.number_field :nota, placeholder: "Nota (1 - 5)", min: 1, max: 5 %>
   </div>
 
   <div>
-    <%= form.label :data_criacao, style: "display: block" %>
-    <%= form.date_field :data_criacao %>
+    <%= form.date_field :data_criacao, type: :hidden, value: Date.today %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.number_field :dinamica_id, type: :hidden, value: @dinamica.id %>
+  </div>
+
+  <div>
+    <%= form.submit "Adicionar Review", class: "btn-form" %>
   </div>
 <% end %>

@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
+    @dinamica = Dinamica.find(params[:dinamica_id])
     @review = Review.new
   end
 
@@ -25,7 +26,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: "Review was successfully created." }
+        format.html { redirect_to @review.dinamica, notice: "A review foi cadastrada." }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: "Review was successfully updated." }
+        format.html { redirect_to @review, notice: "A review foi atualizada." }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class ReviewsController < ApplicationController
     @review.destroy!
 
     respond_to do |format|
-      format.html { redirect_to reviews_path, status: :see_other, notice: "Review was successfully destroyed." }
+      format.html { redirect_to reviews_path, status: :see_other, notice: "A review foi apagada." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.expect(review: [ :comentario, :nota, :data_criacao ])
+      params.expect(review: [ :comentario, :nota, :data_criacao, :dinamica_id ])
     end
 end

@@ -15,11 +15,9 @@
           <%= dinamica.nome %>
         </h3>
 
-        <% dinamica.reviews.each do |review| %>
-          <p>
-            <%= review.nota %>
-          </p>
-        <% end %>
+        <p>
+          <span class="list-label">Avaliação média:</span> <%= dinamica.nota_media || "Não há avaliações." %>
+        </p>
 
         <p>
           <%= link_to "Ver detalhes", dinamica %>

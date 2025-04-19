@@ -218,6 +218,11 @@ span {
   color: #e25160;
 }
 
+.list-label {
+  font-weight: 500;
+  color: #F5F4FE;
+}
+
 .dinamica, form {
   margin: 24px;
   padding: 48px;
@@ -230,9 +235,20 @@ span {
 }
 
 .dinamica-title {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 300;
   color: #F5F4FE;
+}
+
+.dinamica-description {
+  font-size: 20px;
+  font-weight: 300;
+
+  margin-bottom: 16px;
+}
+
+.divider {
+  border-bottom: 1px solid #656b77;
 }
 
 form {

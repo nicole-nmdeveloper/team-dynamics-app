@@ -3,8 +3,25 @@
     <h3 class="dinamica-title">
       <%= @dinamica.nome %>
     </h3>
-    <p>
+    <p class="dinamica-description">
       <%= @dinamica.descricao %>
+    </p>
+
+    <% @dinamica.reviews.each do |review| %>
+      <div class="divider"></div>
+      <p>
+        <span class="list-label">Comentário:</span> <%= review.comentario %>
+      </p>
+      <p>
+        <span class="list-label">Nota:</span> <%= review.nota %>
+      </p>
+      <p>
+        <span class="list-label">Data:</span> <%= review.data_criacao %>
+      </p>
+    <% end %>
+    <div class="divider"></div>
+    <p>
+      <%= link_to "Adicionar review", new_dinamica_review_path(@dinamica) %>
     </p>
   </div>
 
