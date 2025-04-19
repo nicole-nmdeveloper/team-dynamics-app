@@ -2,7 +2,31 @@
 
 <h1>Editar dinâmica</h1>
 
-<%= render "form", dinamica: @dinamica %>
+<%= form_with(model: @dinamica, local: true) do |form| %>
+  <% if @dinamica.errors.any? %>
+    <div class="error-color">
+      <h2><%= pluralize(@dinamica.errors.count, "error") %> prohibited this dinamica from being saved:</h2>
+
+      <ul>
+        <% @dinamica.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :nome, placeholder: "Nome da dinâmica", required: true %>
+  </div>
+
+  <div>
+    <%= form.text_field :descricao, placeholder: "Descrição da dinâmica", required: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Atualizar Dinâmica", class: "btn-form" %>
+  </div>
+<% end %>
 
 <div>
   <%= link_to "Ver dinâmica", @dinamica %>

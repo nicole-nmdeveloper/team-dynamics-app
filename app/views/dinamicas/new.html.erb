@@ -2,4 +2,42 @@
 
 <h1>Nova dinâmica</h1>
 
-<%= render "form", dinamica: @dinamica %>
+<%= form_with(model: @dinamica, local: true) do |form| %>
+  <% if @dinamica.errors.any? %>
+    <div class="error-color">
+      <h2><%= pluralize(@dinamica.errors.count, "error") %> prohibited this dinamica from being saved:</h2>
+
+      <ul>
+        <% @dinamica.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :nome, placeholder: "Nome da dinâmica", required: true %>
+  </div>
+
+  <div>
+    <%= form.text_field :descricao, placeholder: "Descrição da dinâmica", required: true %>
+  </div>
+
+  <%= form.fields_for :reviews do |review_fields| %>
+    <div>
+      <%= review_fields.text_field :comentario, placeholder: "Comentário sobre a dinâmica" %>
+    </div>
+
+    <div>
+      <%= review_fields.number_field :nota, placeholder: "Nota (1 - 5)", min: 1, max: 5 %>
+    </div>
+
+    <div>
+      <%= review_fields.date_field :data_criacao, type: :hidden, value: Date.today %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit "Criar Dinâmica", class: "btn-form" %>
+  </div>
+<% end %>

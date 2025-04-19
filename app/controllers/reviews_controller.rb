@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: "A review foi atualizada." }
+        format.html { redirect_to @review.dinamica, notice: "A review foi atualizada." }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class ReviewsController < ApplicationController
     @review.destroy!
 
     respond_to do |format|
-      format.html { redirect_to reviews_path, status: :see_other, notice: "A review foi apagada." }
+      format.html { redirect_to @review.dinamica, status: :see_other, notice: "A review foi apagada." }
       format.json { head :no_content }
     end
   end

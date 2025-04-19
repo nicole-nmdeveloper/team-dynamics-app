@@ -2,4 +2,37 @@
 
 <h1>Adicionar review</h1>
 
-<%= render "form", review: @review %>
+<%= form_with(model: @review) do |form| %>
+  <% if @review.errors.any? %>
+    <div class="error-color">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% @review.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :comentario, placeholder: "Comentário sobre a dinâmica", required: true %>
+  </div>
+
+  <div>
+    <%= form.number_field :nota, placeholder: "Nota (1 - 5)", min: 1, max: 5, required: true %>
+  </div>
+
+  <div>
+    <%= form.date_field :data_criacao, type: :hidden, value: Date.today %>
+  </div>
+
+  <div>
+    <%= form.number_field :dinamica_id, type: :hidden, value: @dinamica.id %>
+  </div>
+
+  <div>
+    <%= form.submit "Adicionar Review", class: "btn-form" %>
+  </div>
+<% end %>
+
