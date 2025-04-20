@@ -9,9 +9,7 @@ COPY Gemfile.lock /team_dynamics_app/Gemfile.lock
 
 RUN bundle install
 
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+COPY . .
 
 EXPOSE 3000
 

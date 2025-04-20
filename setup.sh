@@ -19,4 +19,4 @@ sleep 5
 echo "Criando banco de dados e rodando migrations..."
 docker-compose exec web rails db:create db:migrate
 
-echo "Tudo pronto! Acesse o App em [http://localhost:3000](http://localhost:3000/)"
+echo "Tudo pronto! Acesse o App em http://localhost:3000/"
