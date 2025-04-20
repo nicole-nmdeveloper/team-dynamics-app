@@ -26,9 +26,13 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        Rails.logger.info "Review criada com sucesso: #{@review.inspect}"
+
         format.html { redirect_to @review.dinamica, notice: "A review foi cadastrada." }
         format.json { render :show, status: :created, location: @review }
       else
+        Rails.logger.error "Erro ao criar review: #{@review.errors.full_messages.join(', ')}"
+
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
@@ -39,9 +43,13 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
+        Rails.logger.info "Review atualizada com sucesso: #{@review.inspect}"
+
         format.html { redirect_to @review.dinamica, notice: "A review foi atualizada." }
         format.json { render :show, status: :ok, location: @review }
       else
+        Rails.logger.error "Erro ao atualizar review: #{@review.errors.full_messages.join(', ')}"
+
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
@@ -53,6 +61,7 @@ class ReviewsController < ApplicationController
     @review.destroy!
 
     respond_to do |format|
+      Rails.logger.info "Review apagada com sucesso: #{@review.inspect}"
       format.html { redirect_to @review.dinamica, status: :see_other, notice: "A review foi apagada." }
       format.json { head :no_content }
     end
